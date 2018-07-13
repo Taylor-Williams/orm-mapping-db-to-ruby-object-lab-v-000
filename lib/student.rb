@@ -1,15 +1,9 @@
 class Student
   attr_accessor :id, :name, :grade
 
-  # def initialize(id:, name:, grade:)
-  #   @id = id
-  #   @name = name
-  #   @grade = grade
-  # end
-
   def self.new_from_db(row)
     # create a new Student object given a row from the database
-    self.new(row[0], row[1], row[2])
+    self.new().tap{|student| student.id = row[0], student.name = row[1], student.grade = row[3]}
   end
 
   def self.all
