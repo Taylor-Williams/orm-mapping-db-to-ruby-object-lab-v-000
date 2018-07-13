@@ -27,7 +27,7 @@ class Student
   end
 
   def self.students_below_12th_grade
-    DB[:conn].execute("SELECT * FROM students WHERE students.grade < 12").map {|student| self.new_from_db(student)}
+    DB[:conn].execute("SELECT * FROM students WHERE students.grade < 12").map{|student| self.new_from_db(student)}
   end
 
   def save
