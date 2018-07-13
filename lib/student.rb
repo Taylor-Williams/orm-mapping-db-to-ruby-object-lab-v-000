@@ -19,7 +19,7 @@ class Student
   def self.find_by_name(name)
     # find the student in the database given a name
     # return a new instance of the Student class
-    self.new_from_db(DB[:conn].execute("SELECT * FROM students WHERE students.name = ?", name).first)
+    self.new_from_db(DB[:conn].execute("SELECT * FROM students WHERE students.name = ? LIMIT 1", name).first)
   end
 
   def save
