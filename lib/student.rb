@@ -34,6 +34,10 @@ class Student
     DB[:conn].execute("SELECT * FROM students WHERE students.grade = 10 LIMIT ?", count).map{|student| self.new_from_db(student)}
   end
 
+  def self.first_student_in_grade_10
+    self.first_student_in_grade_10(1)
+  end
+  
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
