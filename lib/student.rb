@@ -22,6 +22,10 @@ class Student
     self.new_from_db(DB[:conn].execute("SELECT * FROM students WHERE students.name = ? LIMIT 1", name).first)
   end
 
+  def self.count_all_students_in_grade_9
+    DB[:conn].execute("SELECT COUNT(*) FROM students WHERE students.grade = 9")
+  end
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
