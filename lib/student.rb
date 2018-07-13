@@ -27,7 +27,7 @@ class Student
   end
 
   def self.students_below_12th_grade
-    DB[:conn].execute("SELECT COUNT(*) FROM students WHERE students.grade < 12")
+    DB[:conn].execute("SELECT * FROM students WHERE students.grade < 12")
   end
 
   def save
