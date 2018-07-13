@@ -26,6 +26,10 @@ class Student
     DB[:conn].execute("SELECT COUNT(*) FROM students WHERE students.grade = 9")
   end
 
+  def self.students_below_12th_grade
+    DB[:conn].execute("SELECT COUNT(*) FROM students WHERE students.grade < 12")
+  end
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
